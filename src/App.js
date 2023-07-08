@@ -4,11 +4,11 @@ import Hero from './Components/Hero';
  
 function App() {
   return (
-    <div >
+    <>
     <Hero/>
     <Showcase/>
     <Footer/>
-    </div>
+    </>
   );
 }
 
