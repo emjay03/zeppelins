@@ -1,11 +1,13 @@
-
+import Footer from './Components/Footer';
 import Hero from './Components/Hero';
  import Showcase from './Components/Showcase';
+ 
 function App() {
   return (
-    <div className="max-w-[1140px] m-auto ">
+    <div >
     <Hero/>
     <Showcase/>
+    <Footer/>
     </div>
   );
 }
