@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import Project1 from "../img/Project1.png";
 import Project2 from "../img/Project2.png";
-import Detail from "./Detail";
+import Details from "./Detail"; // Import the Details component
 
 function Showcase() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -12,18 +12,18 @@ function Showcase() {
   };
 
   return (
-    <Router>
-      <div className="max-w-[1020px] m-auto xl:px-0 px-4">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <div className="w-full h-full  ">
-                <div className="flex py-10  w-full overflow-x-auto   scrollbar-hidden ">
-                  <ul className="flex gap-10 font-Montserrat text-sm md:text-lg font-semibold">
+   
+    <div className="max-w-[1020px] m-auto xl:px-0 px-4">
+       <Routes>
+    <Route
+      path="/zeppelins"
+      element={
+      <div className="w-full h-full">
+        <div className="flex py-10  w-full overflow-x-auto scrollbar-hidden">
+        <ul className="flex gap-10 font-Montserrat text-sm md:text-lg font-semibold">
                     {/* Add the links */}
                     <li>
-                      <Link to="/" onClick={() => handleFilterClick("All")}>
+                      <Link to="/zeppelins" onClick={() => handleFilterClick("All")}>
                         <span
                           className={` ${
                             activeFilter === "All"
@@ -37,7 +37,7 @@ function Showcase() {
                     </li>
                     <li>
                       <Link
-                        to="/"
+                        to="/zeppelins"
                         onClick={() => handleFilterClick("All Design")}
                       >
                         <span
@@ -53,7 +53,7 @@ function Showcase() {
                     </li>
                     <li>
                       <Link
-                        to="/"
+                        to="/zeppelins"
                         onClick={() => handleFilterClick("UX Design")}
                       >
                         <span
@@ -70,7 +70,7 @@ function Showcase() {
                     </li>
                     <li>
                       <Link
-                        to="/"
+                        to="/zeppelins"
                         onClick={() => handleFilterClick("Product Design")}
                       >
                         <span
@@ -86,7 +86,7 @@ function Showcase() {
                     </li>
                     <li>
                       <Link
-                        to="/"
+                        to="/zeppelins"
                         onClick={() => handleFilterClick("Articles")}
                       >
                         <span
@@ -102,7 +102,7 @@ function Showcase() {
                     </li>
                     <li>
                       <Link
-                        to="/"
+                        to="/zeppelins"
                         onClick={() => handleFilterClick("Tutorial")}
                       >
                         <span
@@ -117,72 +117,69 @@ function Showcase() {
                       </Link>
                     </li>
                   </ul>
-                </div>
+        </div>
 
-                {/* Wrap the Routes and add conditional rendering */}
-
+       
+              <>
                 <div
-                  className={`flex   flex-col md:flex-row gap-5 justify-center font-Montserrat py-5 ${
+                  className={`flex flex-col md:flex-row gap-5 justify-center font-Montserrat py-5 ${
                     activeFilter === "All" || activeFilter === "All Design"
                       ? "flex"
                       : "hidden"
                   }`}
                 >
-                  <>
-                    {/* showcase left side project */}
+                  {/* Showcase left side project */}
+                  <div>
+                    <img className="w-full" src={Project1} alt="Project1" />
+                    <div className="py-1"></div>
+                    <p className="font-semibold text-[#424242] text-base">
+                      Nov 23 2020
+                    </p>
+                    <div className="py-1"></div>
+                    <h1 className="font-semibold text-[#D05270] text-lg">
+                      This way is wrong about UI Design
+                    </h1>
+                    <div className="py-1"></div>
+                    <p className="text-[#424242] text-base font-normal">
+                      A quick guide to assisting users in the challenging steps
+                      from learning about your podcast on the web. A quick
+                      guide to assisting users in the challenging steps from
+                      learning about your podcast on the web.
+                    </p>
+                    <div className="py-1"></div>
+                    {/* Change the link to the detail page */}
+                    <Link to="/detail" className="text-[#D05270] underline">
+                      READ MORE
+                    </Link>
+                  </div>
 
-                    <div>
-                      <img className="w-full" src={Project1} alt="Project1" />
-                      <div className="py-1"></div>
-                      <p className="font-semibold text-[#424242] text-base">
-                        Nov 23 2020
-                      </p>
-                      <div className="py-1"></div>
-                      <h1 className="font-semibold text-[#D05270] text-lg">
-                        This way is wrong about UI Design
-                      </h1>
-                      <div className="py-1"></div>
-                      <p className="text-[#424242] text-base font-normal">
-                        A quick guide to assisting users in the challenging
-                        steps from learning about your podcast on the web. A
-                        quick guide to assisting users in the challenging steps
-                        from learning about your podcast on the web.
-                      </p>
-                      <div className="py-1"></div>
-                      {/* Change the link to the detail page */}
-                      <Link to="/detail" className="text-[#D05270] underline">
-                        READ MORE
-                      </Link>
-                    </div>
-
-                    {/* showcase right side project */}
-
-                    <div>
-                      <img className="w-full" src={Project2} alt="Project2" />
-                      <div className="py-1"></div>
-                      <p className="font-semibold text-[#424242] text-base">
-                        Nov 23 2020
-                      </p>
-                      <div className="py-1"></div>
-                      <h1 className="font-semibold text-[#D05270] text-lg">
-                        This way is wrong about UI Design
-                      </h1>
-                      <div className="py-1"></div>
-                      <p className="text-[#424242] text-base font-normal">
-                        A quick guide to assisting users in the challenging
-                        steps from learning about your podcast on the web. A
-                        quick guide to assisting users in the challenging steps
-                        from learning about your podcast on the web.
-                      </p>
-                      <div className="py-1"></div>
-                      {/* Change the link to the detail page */}
-                      <Link to="/detail" className="text-[#D05270] underline">
-                        READ MORE
-                      </Link>
-                    </div>
-                  </>
+                  {/* Showcase right side project */}
+                  <div>
+                    <img className="w-full" src={Project2} alt="Project2" />
+                    <div className="py-1"></div>
+                    <p className="font-semibold text-[#424242] text-base">
+                      Nov 23 2020
+                    </p>
+                    <div className="py-1"></div>
+                    <h1 className="font-semibold text-[#D05270] text-lg">
+                      This way is wrong about UI Design
+                    </h1>
+                    <div className="py-1"></div>
+                    <p className="text-[#424242] text-base font-normal">
+                      A quick guide to assisting users in the challenging steps
+                      from learning about your podcast on the web. A quick
+                      guide to assisting users in the challenging steps from
+                      learning about your podcast on the web.
+                    </p>
+                    <div className="py-1"></div>
+                    {/* Change the link to the detail page */}
+                    <Link to="/detail" className="text-[#D05270] underline">
+                      READ MORE
+                    </Link>
+                  </div>
                 </div>
-                <div
+              </>
+          <div
                   className={`flex flex-col md:flex-row gap-5 justify-center font-Montserrat py-5 ${
                     activeFilter === "All" || activeFilter === "UX Design"
                       ? "flex"
@@ -424,15 +421,16 @@ function Showcase() {
                         READ MORE
                       </Link>
                     </div>
-                  </>
+                    </>
                 </div>
-              </div>
-            }
-          />
-          <Route path="/detail" element={<Detail />} />
-        </Routes>
       </div>
-    </Router>
+       }
+       />
+       {/* Add the route for the details page */}
+       <Route path="/detail" element={<Details />} />
+     </Routes>
+    </div>
+      
   );
 }
 
