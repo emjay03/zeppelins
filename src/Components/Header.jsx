@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
 import image from "../img/Logo.png";
 import hireme from "../img/Hire Me.png";
 import closedoor from "../img/closedoor.png";
